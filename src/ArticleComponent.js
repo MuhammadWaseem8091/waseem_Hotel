@@ -12,7 +12,9 @@ const ArticleComponent = props => {
       urlToImage,
       publishedAt,
       content
-    }
+    },
+    index,
+    deleteNews
   } = props;
 
   return (
@@ -24,6 +26,9 @@ const ArticleComponent = props => {
       <p>{content}</p>
       <a href={url}>{source.name}</a>
       <div>{publishedAt}</div>
+      <div>
+        <button onClick={() => deleteNews(index)} className="btn btn-danger btn-lg m-2">Delete</button>
+      </div>
     </div>
   );
 };
