@@ -1,25 +1,60 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import newsFeed from "./NewsFeed";
+import ArticleComponent from "./ArticleComponent";
+import FilterComponent from "./FilterComponent";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      news: [],
+      searchContent: ""
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const news = await newsFeed();
+      this.setState({
+        news
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  handleChange = event => {
+    this.setState({ searchContent: event.target.value.toLowerCase() });
+  };
+
   render() {
+    const { news, searchContent } = this.state;
+
+    const filteredArticles = news.filter(item => {
+      if (item.content !== null) {
+        return item.content.toLowerCase().includes(searchContent);
+      }
+    });
+
+    const displayNews =
+      filteredArticles.length > 0 ? (
+        filteredArticles.map(article => {
+          return <ArticleComponent newsArticle={article} />;
+        })
+      ) : (
+        <h3>No such news</h3>
+      );
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <div className="textInput">
+          <FilterComponent
+            searchContent={searchContent}
+            handleChange={this.handleChange}
+          />
+        </div>
+        <div className="list">{displayNews}</div>
       </div>
     );
   }
