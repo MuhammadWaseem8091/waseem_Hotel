@@ -1,5 +1,6 @@
 import React from "react";
-// import "./ArticleComponent.css";
+import "./ArticleComponent.css";
+import ButtonComponent from "./ButtonComponent";
 
 const ArticleComponent = props => {
   const {
@@ -25,15 +26,14 @@ const ArticleComponent = props => {
         <h5>{author}</h5>
         <h5>{description}</h5>
         <p>{content}</p>
+        <span>Source Link: </span>
         <a href={url}>{source.name}</a>
         <div>{publishedAt}</div>
+
         <div>
-          <button
-            onClick={() => deleteNews(index)}
-            className="btn btn-secondary btn-lg m-2"
-          >
+          <ButtonComponent index={index} handleClick={deleteNews} >
             Delete
-          </button>
+          </ButtonComponent>
         </div>
       </div>
     </div>

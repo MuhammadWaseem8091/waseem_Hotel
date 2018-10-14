@@ -3,12 +3,14 @@ import "./App.css";
 import newsFeed from "./NewsFeed";
 import ArticleComponent from "./ArticleComponent";
 import FilterComponent from "./FilterComponent";
+import ButtonComponent from "./ButtonComponent";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       news: [],
+      backUpNews:[],
       searchContent: ""
     };
   }
@@ -16,13 +18,22 @@ class App extends Component {
   async componentDidMount() {
     try {
       const news = await newsFeed();
+      const backUpNews = await newsFeed();
       this.setState({
-        news
+        news, backUpNews
       });
     } catch (error) {
       console.error(error);
     }
   }
+
+  resetNews = () => {
+    this.setState({
+      backUpNews: this.state.backUpNews,
+      news: this.state.backUpNews,
+    });
+    console.log(this.state.backUpNews);
+  };
 
   deleteNews = index => {
     let remainingNews = this.state.news;
@@ -64,13 +75,20 @@ class App extends Component {
     return (
       <div className="app">
         <h2>All articles mentioning Apple from yesterday, sorted by popular publishers first</h2>
-        <div className="">
+
+        <div className="flex">
           <FilterComponent
             searchContent={searchContent}
             handleChange={this.handleChange}
           />
+          <ButtonComponent handleClick={this.resetNews}> 
+            Display All
+          </ButtonComponent>
         </div>
-        <div className="article">{displayNews}</div>
+
+        <div className="article">
+          {displayNews}
+        </div>
       </div>
     );
   }

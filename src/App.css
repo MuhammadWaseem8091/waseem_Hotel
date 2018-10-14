@@ -11,9 +11,9 @@
   font-family: "Times New Roman", Times, serif;
 }
 
-.search {
-  margin: auto;
-  padding: 20px;
+.flex {
+  display: flex;
+  justify-content: center;
 }
 
 .article {
@@ -23,19 +23,7 @@
   align-content: space-around;
 }
 
-.news {
-  max-width: 390px;
-  text-align: center;
-  padding: 20px;
-  margin: auto;
-  opacity: 0.3;
-}
 
-.news:hover {
-  opacity: 1;
-}
 
-img{
-  max-width: 100%;
-  border-radius: 3px;
-}
+
+

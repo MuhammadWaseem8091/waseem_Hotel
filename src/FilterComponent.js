@@ -1,14 +1,15 @@
 import React from "react";
+import "./FilterComponent.css"
 
 // Get input from user and filter content according to input string
 
 const FilterComponent = props => {
   return (
-    <div className="search">
+    <div className="searchbar">
       <input
-        class="form-control"
+        className="form-control-lg"
         type="text"
-        placeholder="Search for your favourite news content"
+        placeholder="Filter news by content"
         value={props.searchContent}
         onChange={props.handleChange}
       />
