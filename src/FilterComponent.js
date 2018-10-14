@@ -4,10 +4,11 @@ import React from "react";
 
 const FilterComponent = props => {
   return (
-    <div>
+    <div className="search">
       <input
+        class="form-control"
         type="text"
-        placeholder="Search news content"
+        placeholder="Search for your favourite news content"
         value={props.searchContent}
         onChange={props.handleChange}
       />

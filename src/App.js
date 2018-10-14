@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       news: [],
-      searchContent: "",
+      searchContent: ""
     };
   }
 
@@ -63,13 +63,14 @@ class App extends Component {
 
     return (
       <div className="app">
-        <div className="textInput">
+        <h2>All articles mentioning Apple from yesterday, sorted by popular publishers first</h2>
+        <div className="">
           <FilterComponent
             searchContent={searchContent}
             handleChange={this.handleChange}
           />
         </div>
-        <div className="list">{displayNews}</div>
+        <div className="article">{displayNews}</div>
       </div>
     );
   }
