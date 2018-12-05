@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import newsFeed from "./NewsFeed";
-import ArticleComponent from "./ArticleComponent";
-import FilterComponent from "./FilterComponent";
-import ButtonComponent from "./ButtonComponent";
+import ArticleComponent from "./ArticleComponent/ArticleComponent";
+import FilterComponent from "./FilterComponent/FilterComponent";
+import ButtonComponent from "./ButtonComponent/ButtonComponent";
 
 class App extends Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class App extends Component {
           );
         })
       ) : (
-        <h1>No such news</h1>
+        <h1>No such content</h1>
       );
 
     return (

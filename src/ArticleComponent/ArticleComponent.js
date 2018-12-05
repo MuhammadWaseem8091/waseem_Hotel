@@ -1,6 +1,8 @@
 import React from "react";
 import "./ArticleComponent.css";
-import ButtonComponent from "./ButtonComponent";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
+
+// Displaying each news article container
 
 const ArticleComponent = props => {
   const {
