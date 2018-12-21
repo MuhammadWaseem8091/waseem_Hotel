@@ -74,7 +74,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <h2>All articles mentioning Apple from yesterday, sorted by popular publishers first</h2>
+        <h2>Top business headlines in the US right now</h2>
 
         <div className="flex">
           <FilterComponent
