@@ -32,9 +32,9 @@ You may use Heroku or Netlify to deploy the app after pushing the code to your G
 ## Authors
 
 * Sheldon Lim
-* Instructers from [ThoughtWorks JumpStart!](https://www.thoughtworks.com/jumpstart)
+* Instructors from [ThoughtWorks JumpStart!](https://www.thoughtworks.com/jumpstart)
 
 
 ## Acknowledgments
 
-* Hats to both my instructers,  [Yamin](https://github.com/yaminmhd) and [Gordon](https://github.com/songguoqiang)
+* Hats to both my instructors,  [Yamin](https://github.com/yaminmhd) and [Gordon](https://github.com/songguoqiang)
